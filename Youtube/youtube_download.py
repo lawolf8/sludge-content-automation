@@ -24,7 +24,8 @@ class YouTubeMP4:
         else:
             print(f"Directory already exists: {self.downloads_dir}")
         #Get the API Key 
-        self.api_key = self.read_api_key("C:\\Users\\Luke Wolf\\Desktop\\VT API Key.txt")
+        self.username = os.getenv("USERNAME")
+        self.api_key = self.read_api_key(rf"C:\\Users\\{self.username}\\Desktop\\API Keys\\VT API Key.txt")
 
     def read_api_key(self, file_path):
         try:
@@ -109,7 +110,7 @@ class YouTubeMP4:
                     break
                 else:
                     print("File analysis in progress, waiting for completion...")
-                    time.sleep(15)
+                    time.sleep(30)
             else:
                 print(f"Error checking file analysis status: {response.status_code}")
                 break

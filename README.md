@@ -1,60 +1,81 @@
 # sludge-content-automation
-🎥 TikTok Video Automation with Python 🐍
-Welcome to the TikTok Video Automation project! This repository provides a comprehensive solution for automating the process of uploading videos to TikTok, complete with captions and hashtags. Perfect for content creators looking to streamline their workflow. 🚀
+![made-with-python](https://img.shields.io/badge/Made%20with-Python3-brightgreen)
 
-📋 Table of Contents
-Introduction
-Features
-Prerequisites
-Installation
-Usage
-Open TikTok and Center Window
-Upload Video with Caption
-Configuration
-Troubleshooting
-Contributing
-License
-📖 Introduction
-This project uses Python's powerful automation libraries to interact with the TikTok desktop application. With this script, you can:
+<!-- LOGO -->
+<br />
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/54740007/212677385-8f453f16-06fd-41e2-83a6-8a25d5435418.png" alt="Logo" width="80" height="80">
 
-Open the TikTok app
-Center the app window
-Upload a video
-Add a caption with hashtags
-✨ Features
-Automated Window Management: Automatically opens and centers the TikTok app window on your screen.
-Video Upload: Uploads videos to TikTok from a specified path.
-Caption Handling: Adds a customizable caption with hashtags to your video.
-User-Friendly: Simple and intuitive Python script.
-🛠 Prerequisites
-Before you begin, ensure you have met the following requirements:
+  <h3 align="center">TikTok-Uploader</h3>
 
-Python 3.x installed
-TikTok desktop app installed and pinned on the taskbar
-Required Python packages: pyautogui, pygetwindow
-📥 Installation
-Clone the Repository:
-
-bash
-Copy code
-git clone https://github.com/yourusername/tiktok-automation.git
-cd tiktok-automation
-Install Dependencies:
-
-bash
-Copy code
-pip install pyautogui pygetwindow
+  <p align="center">
+    Script to download Youtube videos, create stacked videos, upload to TikTok, and track all metrics
+    <br />
+    </p>
+</p>
 
 
-⚙ Configuration
-Coordinates: Adjust the coordinates in the script based on your screen resolution and TikTok's UI.
-Delays: Adjust the time.sleep durations as needed to ensure the UI elements have enough time to load.
-🐞 Troubleshooting
-Window Not Found: Ensure the TikTok app is open and the window title matches exactly.
-Coordinates Incorrect: Use PyAutoGUI's coordinate finder to get the correct coordinates for clicking.
-🤝 Contributing
-Contributions are welcome! Please feel free to submit a Pull Request.
+## About The Project
 
-📄 License
-This project is licensed under the MIT License.
+This project is made with Python 3.
 
+The script is easy to use and requires minimal setup. Simply provide your TikTok *sessionid* cookie, the video file you wish to upload and the video details, and the script will handle the rest. You can also schedule videos to be uploaded at a specific time, making it easy to plan your content in advance.
+
+## Getting Started
+To get started you need to have python3 installed. If it is not the case you can download it here : https://www.python.org/downloads/<br><br>
+You will also need your TikTok ***sessionid* cookie**. To get it log in to your TikTok account and on the page https://www.tiktok.com/ press the F12 key on your keyboard then Application > Storage > Cookies and find the value of the *sessionid* cookie. You should have something like this: `7a9f3c5d8f6e4b2a1c9d8e7f6a5b4c3d` <br><br>
+*Note that you need a **Business account** in order to use the **schedule feature**, if the option is not available on your computer you can switch to a Business account using the smartphone app.*
+
+### Installation
+Make sure you've already git installed. Then you can run the following commands to get the scripts on your computer:
+   ```sh
+   git clone https://github.com/MiniGlome/Tiktok-uploader.git
+   cd Tiktok-uploader
+   ```
+The script only requires the `requests` module, you can install it with this command:
+```sh
+pip install -r requirements.txt
+```
+   
+## Usage
+### Import in your script
+You can copy the file `Tiktok_uploader.py` in your project folder and use it like this:
+```python
+from Tiktok_uploader import uploadVideo
+
+session_id = "7a9f3c5d8f6e4b2a1c9d8e7f6a5b4c3d"
+file = "my_video.mp4"
+title = "MY SUPER TITLE"
+tags = ["Funny", "Joke", "fyp"]
+schedule_time = 1672592400
+
+# Publish the video
+uploadVideo(session_id, file, title, tags, verbose=True)
+# Schedule the video
+uploadVideo(session_id, file, title, tags, schedule_time, verbose=True)
+```
+- `session_id`: Your TikTok *sessionid* cookie.<br>
+- `file`: The path to the video you want to upload.<br>
+- `title`: The title of your publication (without hashtags).<br>
+- `tags`: The list of hashtags you want to add to your post (without `#` symbol). May be empty list `[]`.<br>
+- `schedule_time`: The timestamp (in seconds) at which you want to schedule your video.<br>
+**Note that you cannot schedule a video more than 10 days in advance.**<br>
+**Note that your TikTok *sessionid* cookie needs to be updated every 2 months.**
+
+### With the command line
+```
+usage: Tiktok_uploader.py [-h] -i SESSION_ID -p PATH -t TITLE [--tags [TAGS ...]] [-s SCHEDULE_TIME]
+
+options:
+  -h, --help            show this help message and exit
+  -i SESSION_ID, --session_id SESSION_ID
+                        Tiktok sessionid cookie
+  -p PATH, --path PATH  Path to video file
+  -t TITLE, --title TITLE
+                        Title of the video
+  --tags [TAGS ...]     List of hashtags for the video
+  -s SCHEDULE_TIME, --schedule_time SCHEDULE_TIME
+                        schedule timestamp for video upload
+```                        
+The `session_id`, `path` and `title` fields are required.
+    

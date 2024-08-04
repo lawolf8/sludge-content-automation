@@ -51,17 +51,32 @@ class YouTubeMP4:
                 print("This video is age-restricted and requires login.")
                 return
             stream = yt.streams.filter(progressive=True, file_extension='mp4').order_by('resolution').desc().first()
+            if stream is None:
+                print("No suitable stream found.")
+                return
+
             filename = self.generate_unique_name(base_name="youtube")
             file_path = os.path.join(self.downloads_dir, filename)
             
+            print(f"Downloading video to: {file_path}")
             stream.download(output_path=self.downloads_dir, filename=filename)
             video_path = f"{file_path}"
 
+            print(f"Processing video: {video_path}")
             video = mp.VideoFileClip(video_path)
-            output_path = os.path.join(self.downloads_dir, filename)
-            video.write_videofile(output_path, codec="libx264")
+
+            # Ensure the output filename is different from the input filename
+            output_filename = self.generate_unique_name(base_name="youtube_output")
+            output_path = os.path.join(self.downloads_dir, output_filename)
+
+            # Write the video file using proper settings
+            video.write_videofile(output_path, codec='libx264', audio_codec='aac', temp_audiofile='temp-audio.m4a', remove_temp=True)
 
             print(f"Video downloaded and saved as {output_path}")
+
+            # Clean up the original downloaded file to avoid duplication
+            if os.path.exists(video_path):
+                os.remove(video_path)
 
             # Verify the file with VirusTotal
             if self.api_key:
@@ -116,9 +131,9 @@ class YouTubeMP4:
                 break
 
 #For Testing Purposes 
-'''
+
 if __name__ == "__main__":
-    url = "https://www.youtube.com/watch?v=FSvNhxKJJyU"
+    url = "https://www.youtube.com/watch?v=i0M4ARe9v0Y&t=2s"
+    #subway surfer: https://www.youtube.com/watch?v=i0M4ARe9v0Y&t=2s
     youtube_mp4 = YouTubeMP4()
     youtube_mp4.youtube_download(url)
-'''

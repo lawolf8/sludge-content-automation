@@ -1,5 +1,5 @@
 """
-Youtube Analytics
+WIP - Youtube Analytics
 
 Utilizing the youtube API, data analytics can be performed to determine most viewed sections of exported videos since the aim is to create a video of a minimum of 1 minute and shorter than 2 due 
 to the consumers attention span. Additionally, the data is used to see if the video is considered "worthy" of being uploaded to tiktok based on the attention span, views, and more data metrics.

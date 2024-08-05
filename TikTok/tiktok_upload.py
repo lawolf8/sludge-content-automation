@@ -2,11 +2,6 @@ import pyautogui
 import time
 import pygetwindow as gw
 
-'''
-Okay DO NOT CHANGE ANY OF THE MOVETO LOCATIONS, I want you to alter this code so if there are multiple parts to that file (the file name will be exactly the same except the ending will end with part_1,part_2, etc.) so then if there are mutliple parts (until the last part) that the
-'''
-l
-
 def get_screen_size():
     screen_width, screen_height = pyautogui.size()
     return screen_width, screen_height
@@ -31,7 +26,7 @@ def open_tiktok_and_center_and_fullscreen():
     time.sleep(10)
     center_window('TikTok')
 
-def upload_video(video_path, caption, status):
+def upload_video(video_path, caption):
     # Open TikTok and center the window
     open_tiktok_and_center_and_fullscreen()
     time.sleep(5)  # Wait for TikTok to fully load
@@ -61,8 +56,7 @@ def upload_video(video_path, caption, status):
     # Click submit (adjust coordinates)
     pyautogui.moveTo(620, 1020, duration=1)  # Adjust to the submit button
     pyautogui.click()
-    time.sleep(45)
-    
+    time.sleep(5)
 
 if __name__ == "__main__":
     video_path = r"C:\Users\Luke Wolf\Downloads\Output Downloads\stacked_split_screen_20240804105817_part_1.mp4"

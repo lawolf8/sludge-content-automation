@@ -2,6 +2,11 @@ import pyautogui
 import time
 import pygetwindow as gw
 
+'''
+Okay DO NOT CHANGE ANY OF THE MOVETO LOCATIONS, I want you to alter this code so if there are multiple parts to that file (the file name will be exactly the same except the ending will end with part_1,part_2, etc.) so then if there are mutliple parts (until the last part) that the
+'''
+l
+
 def get_screen_size():
     screen_width, screen_height = pyautogui.size()
     return screen_width, screen_height
@@ -26,18 +31,19 @@ def open_tiktok_and_center_and_fullscreen():
     time.sleep(10)
     center_window('TikTok')
 
-def upload_video(video_path, caption):
+def upload_video(video_path, caption, status):
     # Open TikTok and center the window
     open_tiktok_and_center_and_fullscreen()
     time.sleep(5)  # Wait for TikTok to fully load
 
-    # Navigate to the upload section (coordinates will vary)
-    # Adjust these coordinates based on your screen and TikTok's UI
-    pyautogui.click(x=1630, y=570)  # Example: Click on the upload button
+    # Navigate to the upload section (adjust coordinates)
+    pyautogui.moveTo(1650, 50, duration=1)  # Adjust to the upload button
+    pyautogui.click()
     time.sleep(3)
 
-    # Click on the file upload input (coordinates will vary)
-    pyautogui.click(x=1075, y=475)  # Click to open file dialog
+    # Click on the file upload input (adjust coordinates)
+    pyautogui.moveTo(1060, 465, duration=1)  # Adjust to the file dialog
+    pyautogui.click()
     time.sleep(2)
 
     # Type the path to the video file
@@ -45,17 +51,21 @@ def upload_video(video_path, caption):
     pyautogui.press('enter')
     time.sleep(5)  # Wait for the video to be uploaded
 
-    # Write the caption (coordinates will vary)
-    pyautogui.click(x=920, y=3444)  # Click on caption field
+    # Write the caption (adjust coordinates)
+    pyautogui.moveTo(940, 330, duration=1)  # Adjust to the caption field
+    pyautogui.click()
+    # delete text somehow
     pyautogui.write(caption, interval=0.1)
     time.sleep(2)
 
-    # Click submit (coordinates will vary)
-    pyautogui.click(x=624, y=1024)  # Click to submit
-    time.sleep(5)
+    # Click submit (adjust coordinates)
+    pyautogui.moveTo(620, 1020, duration=1)  # Adjust to the submit button
+    pyautogui.click()
+    time.sleep(45)
+    
 
 if __name__ == "__main__":
-    video_path = rf"C:\Users\Luke Wolf\Downloads\Output Downloads\stacked_split_screen_20240804105817_part_1.mp4"
+    video_path = r"C:\Users\Luke Wolf\Downloads\Output Downloads\stacked_split_screen_20240804105817_part_1.mp4"
     caption = 'Your video caption with hashtags #example #upload'
-
+    
     upload_video(video_path, caption)

@@ -1,12 +1,11 @@
-# sludge-content-automation
-![made-with-python](https://img.shields.io/badge/Made%20with-Python3-brightgreen)
+![made-with-python](https://img.shields.io/badge/Made%20with-Python3-brightgreen) 
 
 <!-- LOGO -->
 <br />
 <p align="center">
   <img src="https://user-images.githubusercontent.com/54740007/212677385-8f453f16-06fd-41e2-83a6-8a25d5435418.png" alt="Logo" width="80" height="80">
 
-  <h3 align="center">TikTok-Uploader</h3>
+  <h3 align="center">Sludge-Content-Automation</h3>
 
   <p align="center">
     Script to download Youtube videos, create stacked videos, upload to TikTok, and track all metrics
@@ -17,20 +16,21 @@
 
 ## About The Project
 
-This project is made with Python 3.
+This project is made with Python 3 and is comprised of 3 aspects.
 
-The script is easy to use and requires minimal setup. Simply provide your TikTok *sessionid* cookie, the video file you wish to upload and the video details, and the script will handle the rest. You can also schedule videos to be uploaded at a specific time, making it easy to plan your content in advance.
+1. Youtube: This will utilize google APIs, VirusTotal API, and some OS libraries (such as moviepy) to download youtube videos, store metrics, check the downloaded file for viruses, stack videos, and log the videos metrics from Youtube.
+2. TikTok: Utilizing the TikTok Desktop App, can upload (and schedule upload) and log metrics from TikTok videos using OS libraries (since you cannot use TikTok's APIs unless you have an app)
+3. Database: With the metrics gathered from Youtube and Tiktok, this will all be stored in a database within various tables to be used to determine the best content (which videos get the most views, what hastags have the most traction, etc.)
 
 ## Getting Started
 To get started you need to have python3 installed. If it is not the case you can download it here : https://www.python.org/downloads/<br><br>
-You will also need your TikTok ***sessionid* cookie**. To get it log in to your TikTok account and on the page https://www.tiktok.com/ press the F12 key on your keyboard then Application > Storage > Cookies and find the value of the *sessionid* cookie. You should have something like this: `7a9f3c5d8f6e4b2a1c9d8e7f6a5b4c3d` <br><br>
-*Note that you need a **Business account** in order to use the **schedule feature**, if the option is not available on your computer you can switch to a Business account using the smartphone app.*
+
 
 ### Installation
 Make sure you've already git installed. Then you can run the following commands to get the scripts on your computer:
    ```sh
-   git clone https://github.com/MiniGlome/Tiktok-uploader.git
-   cd Tiktok-uploader
+   git clone https://github.com/lawolf8/sludge-content-automation
+   cd sludge-content-automation
    ```
 The script only requires the `requests` module, you can install it with this command:
 ```sh

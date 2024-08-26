@@ -1,6 +1,7 @@
 import pyautogui
 import time
 import pygetwindow as gw
+import os
 
 class application:
     def __init__(self):
@@ -66,7 +67,8 @@ class tiktok_automation:
         time.sleep(5)
 
 if __name__ == "__main__":
-    video_path = r"C:\Users\Luke Wolf\Downloads\Output Downloads\stacked_split_screen_20240804105817_part_1.mp4"
+    username = os.getenv("USERNAME")
+    video_path = rf"C:\Users\{username}\Downloads\Output Downloads\stacked_split_screen_20240804105817_part_1.mp4"
     caption = 'Your video caption with hashtags #example #upload'
     
     tiktok_automation.upload_video(video_path, caption)

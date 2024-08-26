@@ -25,6 +25,7 @@ class YouTubeMP4:
             print(f"Directory already exists: {self.downloads_dir}")
         #Get the API Key 
         self.username = os.getenv("USERNAME")
+        #Store API key for Virus Total in text file
         self.api_key = self.read_api_key(rf"C:\\Users\\{self.username}\\Desktop\\API Keys\\VT API Key.txt")
 
     def read_api_key(self, file_path):

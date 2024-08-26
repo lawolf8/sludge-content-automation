@@ -15,7 +15,7 @@
 
 
 ## About The Project
-
+WORK IN PROCESS | ESTIMATED COMPLETION DATE: 09/08/2024
 This project is made with Python 3 and is comprised of 3 aspects.
 
 1. Youtube: This will utilize google APIs, VirusTotal API, and some OS libraries (such as moviepy) to download youtube videos, store metrics, check the downloaded file for viruses, stack videos, and log the videos metrics from Youtube.

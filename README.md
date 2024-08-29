@@ -1,26 +1,18 @@
 ![made-with-python](https://img.shields.io/badge/Made%20with-Python3-brightgreen) 
+![made-with-sql](https://img.shields.io/badge/Made%20with-sql-blue)
 
-<!-- LOGO -->
-<br />
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/54740007/212677385-8f453f16-06fd-41e2-83a6-8a25d5435418.png" alt="Logo" width="80" height="80">
-
-  <h3 align="center">Sludge-Content-Automation</h3>
-
-  <p align="center">
-    Script to download Youtube videos, create stacked videos, upload to TikTok, and track all metrics
-    <br />
-    </p>
-</p>
+<!-- LOGO --> <br /> <p align="center"> <img src="https://user-images.githubusercontent.com/54740007/212677385-8f453f16-06fd-41e2-83a6-8a25d5435418.png" alt="TikTok Logo" width="80" height="80"> <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube Logo" width="80" height="80"> <h3 align="center">Sludge-Content-Automation</h3> <p align="center">
 
 
 ## About The Project
 WORK IN PROCESS | ESTIMATED COMPLETION DATE: 09/08/2024
-This project is made with Python 3 and is comprised of 3 aspects.
+This project is made with Python 3 and is comprised of 5 aspects.
 
 1. Youtube: This will utilize google APIs, VirusTotal API, and some OS libraries (such as moviepy) to download youtube videos, store metrics, check the downloaded file for viruses, stack videos, and log the videos metrics from Youtube.
 2. TikTok: Utilizing the TikTok Desktop App, can upload (and schedule upload) and log metrics from TikTok videos using OS libraries (since you cannot use TikTok's APIs unless you have an app)
-3. Database: With the metrics gathered from Youtube and Tiktok, this will all be stored in a database within various tables to be used to determine the best content (which videos get the most views, what hastags have the most traction, etc.)
+3. Database: With the metrics gathered from Youtube and Tiktok, this will all be stored in a database within various tables to be used to determine the best content (which videos get the most views, what hastags have the most traction, etc.
+4. Machine Learning: Uses the data collected from views of videos to determine rising hashtag popularity, optimal content, and more to maximize views per post.
+5. GUI: User Interface as a dashboard to view metrics, data analytics, and encourage decision making on their social media platforms
 
 ## Getting Started
 To get started you need to have python3 installed. If it is not the case you can download it here : https://www.python.org/downloads/<br><br>
